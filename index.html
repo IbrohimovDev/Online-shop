@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online shop</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./js/app.js"></script>
+</head>
+
+<body>
+    <div class="temporary d-none ">
+        <div class="saleBox d-flex">
+            <div class="img-box">
+                <img src="./img/sale.jpeg" class="rounded" alt="t-shirt">
+            </div>
+            <div class="content p-10">
+                <h1 class="text-center" style="margin-top:20px;">Big sale</h1>
+                <h1 class="minus50">-50%</h1>
+                <button class="close-btn">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="alert">
+        <span class="alert-text"></span>
+    </div>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <nav class="d-flex d-row align-center space-around">
+                    <div class="nav-ul">
+                        <ul class="d-flex  align-center">
+                            <li>The Shop</li>
+                            <li>Products</li>
+                            <li>Contacts</li>
+                            <li>Account</li>
+                        </ul>
+                    </div>
+                    <div class="cart d-flex" onclick="showDrop()">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <div class="cart-counter-dot d-flex align-center justify-center">
+                            <span class="cart-quantity-counter white-text">0</span>
+                        </div>
+                        <div class="cart-dropdown d-flex flex-column" onmouseleave="hideDrop()">
+                            <div class="cart-dropdown-items-container">
+                            </div>
+                            <div class="totalization">
+                                <div class="total-price d-flex d-row align-center color-black space-between">
+                                    <p>Total price</p>
+                                    <p class="cart-total-price">$0</p>
+                                </div>
+                                <button class="pointer p-10 btn w-100 bg-whitesmoke color-primary clearAll">Clear all</button>
+                                <button class="pointer p-10 btn w-100 bg-primary text-white">Purchase</button>
+                                <button class="pointer p-10 btn w-100 bg-whitesmoke color-primary mt-10">Go to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="searchbar d-flex align-center ">
+                        <input type="text " id="autocomplete" placeholder="Search anything... ">
+                        <ion-icon name="search-outline"></ion-icon>
+                        <div onmouseleave="hideDrop()">
+                            <ul class="prediction">
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <main class="justify-center ">
+                <div class="container d-flex d-row align-center space-between ">
+                    <h1>Most Awaited <br> Winter Sale <br>Is here!</h1>
+                    <div class="header__imgBox ">
+                        <img src="./img/header.png " class="round-img " alt=" ">
+                    </div>
+                </div>
+                <ion-icon name="chevron-down-outline" class="chevron-down left50 "></ion-icon>
+            </main>
+        </header>
+        <section class="products popular-categories ">
+            <h1 class="text-center h1 ">Popular categories</h1>
+            <div class="container products-grid grid-template ">
+
+                <a href="# ">
+                    <div class="popular-items d-flex flex-column ">
+                        <div class="items__imgBox ">
+                            <img src="./img/phone.png " alt=" ">
+                        </div>
+                        <h1>Smartphones</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ? </p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="popular-items d-flex flex-column ">
+                        <div class="items__imgBox ">
+                            <img src="./img/laptop.jpg " alt=" ">
+                        </div>
+                        <h1>Latops</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ? </p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="popular-items d-flex flex-column ">
+                        <div class="items__imgBox ">
+                            <img src="./img/smartwatch.jpg " alt=" ">
+                        </div>
+                        <h1>SmartWatches</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ? </p>
+                    </div>
+                </a>
+                <a href="# ">
+                    <div class="popular-items d-flex flex-column ">
+                        <div class="items__imgBox ">
+                            <img src="./img/headphone.jpg " alt=" ">
+                        </div>
+                        <h1>HeadPhones</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ? </p>
+                    </div>
+                </a>
+            </div>
+            <button class="bg-primary text-white see-more rounded left50 p-10 ">See more</button>
+        </section>
+
+        <section class="for-you container ">
+            <h1 class="h1 text-center ">Best selling Products for you</h1>
+            <div class="for-you-container">
+                <div class="d-flex d-row">
+                    <div class="indicator d-flex flex-start">
+                        <div class="mr-5 btn bg-primary text-white rounded pointer" data-filter="all">All</div>
+                        <div class="mr-5 btn bg-primary text-white rounded pointer" data-filter="electronics">Electronics</div>
+                        <div class="mr-5 btn bg-primary text-white rounded pointer" data-filter="men's clothing">Men's</div>
+                        <div class="mr-5 btn bg-primary text-white rounded pointer" data-filter="jewelery">Jewelery</div>
+                        <div class="mr-5 btn bg-primary text-white rounded pointer" data-filter="women's clothing">Women's</div>
+                    </div>
+                    <select class="filterPrice">
+                        <option value="default"> Default </option>
+                        <option value="lowToHigh"> Low to high </option>
+                        <option value="highToLow"> High to low </option>
+                    </select>
+                </div>
+                <div class="grid-template products-grid2">
+                    <!-- <div class="rounded for-you-products bg-primary text-white p-20 ">
+                        <a href="# ">
+                            <div class="items__imgBox ">
+                                <img src="./img/laptop.jpg" alt=" " class="items__imgBox-img ">
+                            </div>
+                            <p class="product-content product-title">Acer 15.6 laptop</p>
+                        </a>
+                        <h3 class="product-price">$458.12</h3>
+                        <div class="d-flex d-row align-center ">
+                            <div class="rate d-flex d-row align-center ">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                            </div>
+                            <p style="font-size: 12px; ">(21)</p>
+                            <ion-icon name="cart-outline" class="product-add-to-cart"> </ion-icon>
+                        </div>
+                    </div>
+                    <div class="rounded for-you-products bg-primary text-white p-20 ">
+                        <a href="# ">
+                            <div class="items__imgBox ">
+                                <img src="./img/headphone.jpg " alt=" " class="items__imgBox-img ">
+                            </div>
+                            <p class="product-content product-title">Zerton Headphone</p>
+                        </a>
+                        <h3 class="product-price">$18.65</h3>
+                        <div class="d-flex d-row align-center ">
+                            <div class="rate d-flex d-row align-center ">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star-half-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                            </div>
+                            <p style="font-size: 12px; ">(251)</p>
+                            <ion-icon name="cart-outline" class="product-add-to-cart"> </ion-icon>
+                        </div>
+                    </div>
+                    <div class="rounded for-you-products bg-primary text-white p-20 ">
+                        <a href="# ">
+                            <div class="items__imgBox ">
+                                <img src="./img/phone.png " alt=" " class="items__imgBox-img ">
+                            </div>
+                            <p class="product-content product-title">Samsung Galaxy Note 20 Ultra</p>
+                        </a>
+                        <h3 class="product-price">$953.72</h3>
+                        <div class="rate d-flex d-row align-center ">
+                            <div class="rate d-flex d-row align-center ">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                            </div>
+                            <p style="font-size: 12px; ">(130)</p>
+                            <ion-icon name="cart-outline" class="product-add-to-cart"> </ion-icon>
+
+                        </div>
+                    </div>
+                        <div class="rounded for-you-products bg-primary text-white p-20 ">
+                            <a href="# ">
+                                <div class="items__imgBox ">
+                                    <img src="./img/smartwatch.jpg " alt=" " class="items__imgBox-img ">
+                                </div>
+                                <p class="product-content product-title">iWatch SmartWatch</p>
+                            </a>
+                            <h3 class="product-price">$228.12</h3>
+                            <div class="d-flex d-row align-center ">
+                                <div class="rate d-flex d-row align-center ">
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star-half-outline"></ion-icon>
+                                    <ion-icon name="star-outline"></ion-icon>
+                                    <ion-icon name="star-outline"></ion-icon>
+                                </div>
+                                <p style="font-size: 12px; ">(666)</p>
+                                <ion-icon name="cart-outline" class="product-add-to-cart"> </ion-icon>
+                            </div>
+                        </div> -->
+                </div>
+            </div>
+    </div>
+    </section>
+    <button class="bg-primary text-white see-more rounded left50 p-10 ">See more</button>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
+    </script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
